@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import { ViewPortProvider } from './app/context'
 import './App.css';
+import { DynamicHeader } from './components/DynamicHeader';
 
 function App() {
+  const row = [ 1,  'US', 'peanut butter',  'peanuts',  'peanut']
+  const rowItems = row.map((items) => <td>{items}</td>)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ViewPortProvider>
+    <DynamicHeader 
+      title={'Food Products Sold In the US, MX and UK'}
+      backgroundColor='lightblue'
+      position='flex-start'
+    >
+
+    </DynamicHeader>
+    <table style={{border:'2px solid black'}}>
+      <tbody>
+        <tr>{rowItems}</tr>
+      </tbody>
+    </table>
+    </ViewPortProvider>
+  )
 }
 
 export default App;
