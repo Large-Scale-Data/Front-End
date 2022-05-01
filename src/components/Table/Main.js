@@ -2,7 +2,7 @@ import React from "react";
 export const TableComponent = ({ data }) => {
   return <table style={{width:'100%', tableLayout:'fixed', color:'white'}}>
       <thead>
-      <tr style={{background:'grey'}}>
+      <tr style={{background:'#16A085'}}>
           <th>Region</th>
           <th>Product Name</th>
           <th>Product Category</th>
