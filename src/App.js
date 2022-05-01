@@ -3,6 +3,7 @@ import './App.css';
 import { DynamicHeader } from './components/DynamicHeader';
 import { useState } from 'react';
 import { SearchBar } from './components/SearchBar/Main';
+import './components/SearchBar/style/searchBar.css';
 
 function App() {
   const [data, setData] = useState([]);
