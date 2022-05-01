@@ -1,6 +1,9 @@
 import { useState } from 'react'
 
 export const SearchBar = () => {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     const handleChange = (e) => {
         e.preventDefault();
