@@ -10,7 +10,7 @@ import './components/SearchBar/style/searchBar.css';
 
 function App() {
   const [data, setData] = useState([]);
-  const allergens = ["milk", 'egg', 'peanut', 'tree nuts', 'wheat', 'soy', 'fish', 'crustacean']
+  const allergens = ["Milk", 'Eggs', 'Peanut', 'Tree nuts', 'Wheat', 'Soy', 'Fish', 'Crustacean']
   const countries = ["USA", 'UK', 'MX']
 
   return (
