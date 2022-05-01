@@ -1,13 +1,16 @@
+import { Main, TableComponent } from './components/Table/Main';
 import { ViewPortProvider } from './app/context'
 import './App.css';
 import { DynamicHeader } from './components/DynamicHeader';
 import { useState } from 'react';
 import { SearchBar } from './components/SearchBar/Main';
-import './components/SearchBar/style/searchBar.css';
+import { AllergiesContainer } from './components/AllergiesContainer/Main';
+import { FilterCountries } from './components/FilterCountries/Main';
 
 function App() {
   const [data, setData] = useState([]);
   const allergens = ["milk", 'egg', 'peanut', 'tree nuts', 'wheat', 'soy', 'fish', 'crustacean']
+  const countries = ["USA", 'UK', 'MX']
 
   return (
     <ViewPortProvider>
@@ -15,43 +18,16 @@ function App() {
       title={'Food Products Sold In the US, MX and UK'}
       backgroundColor='lightblue'
       position='flex-start'
-      items={<button>Allergies</button>}/>
-    <SearchBar></SearchBar>
-    <b>
-      Filter through allergies
-    </b>
-    <div style={{display:'flex', flexDirection:'row'}}>
-      { allergens.map((allergy) => 
-        //TODO: this is where custom toggle component will go
-        <label style={{display:'flex', flexDicretion:'row'}}>
-          <div>{allergy}</div>
-          <input type="checkbox"></input>
-        </label>
-      )}
+      items={[<div>Allergy Information</div>, 
+      <div>About Us</div>]}/>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
+      <SearchBar></SearchBar>
+      <AllergiesContainer allergy={allergens} />
+      <FilterCountries countries={countries} />
+
+
+      <TableComponent data={data} />
     </div>
-    <table>
-      <thead>
-      <tr>
-          <th>Region</th>
-          <th>Product Name</th>
-          <th>Product Category</th>
-          <th>Unit Price</th>
-          <th>Action</th>
-      </tr>
-      </thead>
-      <tbody>
-        {
-          data.map((item) => (
-            <tr key={item.id}>
-              <td>{item.product_name}</td>
-              <td>{item.product_category}</td>
-              <td>{item.unit_price}</td>
-              <td/>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
     </ViewPortProvider>
   )
 }
