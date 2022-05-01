@@ -5,10 +5,12 @@ import { DynamicHeader } from './components/DynamicHeader';
 import { useState } from 'react';
 import { SearchBar } from './components/SearchBar/Main';
 import { AllergiesContainer } from './components/AllergiesContainer/Main';
+import { FilterCountries } from './components/FilterCountries/Main';
 
 function App() {
   const [data, setData] = useState([]);
   const allergens = ["milk", 'egg', 'peanut', 'tree nuts', 'wheat', 'soy', 'fish', 'crustacean']
+  const countries = ["USA", 'UK', 'MX']
 
   return (
     <ViewPortProvider>
@@ -16,10 +18,16 @@ function App() {
       title={'Food Products Sold In the US, MX and UK'}
       backgroundColor='lightblue'
       position='flex-start'
-      items={<button>Allergies</button>}/>
-    <SearchBar></SearchBar>
-    <AllergiesContainer allergy={allergens} />
-    <TableComponent data={data} />
+      items={[<div>Allergy Information</div>, 
+      <div>About Us</div>]}/>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
+      <SearchBar></SearchBar>
+      <AllergiesContainer allergy={allergens} />
+      <FilterCountries countries={countries} />
+
+
+      <TableComponent data={data} />
+    </div>
     </ViewPortProvider>
   )
 }
