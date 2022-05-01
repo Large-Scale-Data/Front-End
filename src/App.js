@@ -2,6 +2,7 @@ import { ViewPortProvider } from './app/context'
 import './App.css';
 import { DynamicHeader } from './components/DynamicHeader';
 import { useState } from 'react';
+import { SearchBar } from './components/SearchBar/Main';
 
 function App() {
   const [data, setData] = useState([]);
@@ -13,8 +14,8 @@ function App() {
       title={'Food Products Sold In the US, MX and UK'}
       backgroundColor='lightblue'
       position='flex-start'
-    >
-    </DynamicHeader>
+      items={<button>Allergies</button>}/>
+    <SearchBar></SearchBar>
     <b>
       Filter through allergies
     </b>
