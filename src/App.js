@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { SearchBar } from './components/SearchBar/Main';
 import { AllergiesContainer } from './components/AllergiesContainer/Main';
 import { FilterCountries } from './components/FilterCountries/Main';
+import './components/SearchBar/style/searchBar.css';
 
 function App() {
   const [data, setData] = useState([]);
@@ -20,8 +21,8 @@ function App() {
       position='flex-start'
       items={[<div>Allergy Information</div>, 
       <div>About Us</div>]}/>
+      <div style={{padding: '50px'}}><SearchBar></SearchBar></div>
     <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
-      <SearchBar></SearchBar>
       <AllergiesContainer allergy={allergens} />
       <FilterCountries countries={countries} />
 
