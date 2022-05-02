@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { CgSearch } from 'react-icons/cg';
 
 export const SearchBar = () => {
     const [error, setError] = useState(null);
@@ -14,12 +15,16 @@ export const SearchBar = () => {
     //       return country.name.match(searchInput);
     //   });
     }
-    return <div>
+    return <div class="search-box">
         <input
-            type="search"
-            placeholder="Search here"
+            class="search-txt"
+            type="text"
+            name=""
+            placeholder="Type to search"
             onChange={handleChange}
             value={searchInput} />
-            
+        <a class="search-btn" href="#">
+            <CgSearch></CgSearch>
+        </a>
     </div>
 }
