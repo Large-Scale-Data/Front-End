@@ -9,9 +9,9 @@ import { Data } from "../../Data";
       setData(newItem);
     };
 
-    return <>
+    return <div div style={{display:'flex', padding:'10px', flexDirection:'column'}}>
       <b> Filter by countries </b>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent:'space-around'}}>
+      <div style={{ display: 'flex', flexDirection: 'column'}}>
       { countries.map(country =>
           <label style={{ display: 'flex' }}>
             <div>{country}</div>
@@ -20,7 +20,7 @@ import { Data } from "../../Data";
         )
       }
       </div>
-    </>
+    </div>
   }
   
   

@@ -32,12 +32,14 @@ function App() {
       items={[<div>Allergy Information</div>,  <div>About Us</div>]}/>
     <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
       <div style={{padding: '50px'}}><SearchBar></SearchBar></div>
-      <AllergiesContainer 
-        allergies={allergies}
-        setData={setData} />
-      <FilterCountries 
-        countries={countries}
-        setData={setData} />
+      <div style={{display:'flex', width:'100%', gap:'10px', justifyContent:'space-evenly'}}>
+        <AllergiesContainer 
+          allergies={allergies}
+          setData={setData} />
+        <FilterCountries 
+          countries={countries}
+          setData={setData} />
+      </div>
       <TableComponent data={data} />
     </div>
     </ViewPortProvider>

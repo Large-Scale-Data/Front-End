@@ -9,9 +9,9 @@ import { Data } from "../../Data";
       setData(newItem);
     };
 
-    return <>
+    return <div style={{display:'flex', padding:'10px', flexDirection:'column'}}>
       <b> Select Allergy To Avoid </b>
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent:'space-around'}}>
+      <div>
       { allergies.map(allergy => //TODO: this is where custom toggle component will go
           <label style={{ display: 'flex'}}>
             <div>{allergy}</div>
@@ -20,7 +20,7 @@ import { Data } from "../../Data";
         )
       }
       </div>
-    </>
+    </div>
   }
   
   
