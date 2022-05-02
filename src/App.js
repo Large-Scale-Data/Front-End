@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { SearchBar } from './components/SearchBar/Main';
 import { AllergiesContainer } from './components/AllergiesContainer/Main';
 import { FilterCountries } from './components/FilterCountries/Main';
+import './components/SearchBar/style/searchBar.css';
 import axios from "axios";
 import { Data } from './Data';
 
@@ -30,7 +31,7 @@ function App() {
       position='center'
       items={[<div>Allergy Information</div>,  <div>About Us</div>]}/>
     <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
-      <SearchBar></SearchBar>
+      <div style={{padding: '50px'}}><SearchBar></SearchBar></div>
       <AllergiesContainer 
         allergies={allergies}
         setData={setData} />
