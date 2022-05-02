@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CgSearch } from 'react-icons/cg';
+import { GrSearch } from 'react-icons/gr';
 
 export const SearchBar = () => {
     const [error, setError] = useState(null);
@@ -24,7 +24,7 @@ export const SearchBar = () => {
             onChange={handleChange}
             value={searchInput} />
         <a class="search-btn" href="#">
-            <CgSearch></CgSearch>
+            <GrSearch></GrSearch>
         </a>
     </div>
 }

@@ -26,7 +26,7 @@ function App() {
   return (
     <ViewPortProvider>
     <DynamicHeader 
-      title={'Food Products Sold In the US, MX and UK'}
+      title={'Food Products Sold In the US, UK and MX'}
       backgroundColor='lightblue'
       position='center'
       items={[<div>Allergy Information</div>,  <div>About Us</div>]}/>
