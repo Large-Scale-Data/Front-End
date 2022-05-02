@@ -7,26 +7,39 @@ import { SearchBar } from './components/SearchBar/Main';
 import { AllergiesContainer } from './components/AllergiesContainer/Main';
 import { FilterCountries } from './components/FilterCountries/Main';
 import './components/SearchBar/style/searchBar.css';
+import axios from "axios";
+import { Data } from './Data';
 
 function App() {
-  const [data, setData] = useState([]);
-  const allergens = ["Milk", 'Eggs', 'Peanut', 'Tree nuts', 'Wheat', 'Soy', 'Fish', 'Crustacean']
-  const countries = ["USA", 'UK', 'MX']
+  const [data, setData] = useState(Data);
+  const allergies = [...new Set(Data.map((Val) => Val.allergy))];
+  const countries = [...new Set(Data.map((Val) => Val.region))];
+  
+  // refreshList = () => {
+  //   axios
+  //     .get("/api/todos/")
+  //     .then((res) => this.setState({ todoList: res.data }))
+  //     .catch((err) => console.log(err));
+  // };
+  
 
   return (
     <ViewPortProvider>
     <DynamicHeader 
       title={'Food Products Sold In the US, MX and UK'}
       backgroundColor='lightblue'
-      position='flex-start'
-      items={[<div>Allergy Information</div>, 
-      <div>About Us</div>]}/>
-      <div style={{padding: '50px'}}><SearchBar></SearchBar></div>
+      position='center'
+      items={[<div>Allergy Information</div>,  <div>About Us</div>]}/>
     <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
-      <AllergiesContainer allergy={allergens} />
-      <FilterCountries countries={countries} />
-
-
+      <div style={{padding: '50px'}}><SearchBar></SearchBar></div>
+      <div style={{display:'flex', width:'100%', gap:'10px', justifyContent:'space-evenly'}}>
+        <AllergiesContainer 
+          allergies={allergies}
+          setData={setData} />
+        <FilterCountries 
+          countries={countries}
+          setData={setData} />
+      </div>
       <TableComponent data={data} />
     </div>
     </ViewPortProvider>
