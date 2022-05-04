@@ -7,6 +7,8 @@ import './components/SearchBar/style/searchBar.css';
 import axios from "axios";
 import { Box, Tab, Tabs } from '@mui/material';
 import { TabPanel } from './components/TabPanel';
+import { AllergyInfo } from './screens/AllergyInfo';
+import { AboutUs } from './screens/AboutUs';
 
 
 function App() {
@@ -51,10 +53,10 @@ function App() {
         <Home/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item One
+        <AllergyInfo/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <AboutUs/>
       </TabPanel>
     </Box>
     </ViewPortProvider>
