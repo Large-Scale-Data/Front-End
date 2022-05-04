@@ -1,48 +1,24 @@
 import { useState } from 'react'
-import { CgSearch } from 'react-icons/cg';
-import { Data } from '../../Data';
+import { CgSearch } from 'react-icons/cg'
+import { Data } from '../../Data'
 
-export const SearchBar = ({setData, data, filters, setFilterType, setFilters}) => {
-    const [searchInput, setSearchInput] = useState("");
-    const handleChange = (e) => {
-        e.preventDefault();
-        setSearchInput(e.target.value);
-    };
+export const SearchBar = props => {
+  const { setSearchInput } = props
 
-    if (searchInput.length > 0) {
-        // console.log(Data)
-        Data.filter((product) => {
-            // console.log(product.product)
-            // console.log(product.product.match(searchInput))
-            // setData(product.product.match(searchInput))
-        });
-        // const newItem = Data.filter(newVal => {
-  //     //   return newVal.region === filters[0]
-  //     // })
-    }
+  const handleChange = e => {
+    e.preventDefault()
+    setSearchInput(e.target.value.toLowerCase())
+  }
 
-    const updateData = (e, searchInput) => {
-        console.log(e)
-        setFilterType('country')
-        const filtersCopy = [...filters]
-        var index = filtersCopy.indexOf(searchInput)
-        if (index == -1) {
-            filtersCopy.push(searchInput)
-            setFilters(filtersCopy)
-        }
-        alert('clicked ' + searchInput)
-    }
-
-    return <div class="search-box">
+  return  <div class='search-box'>
         <input
-            class="search-txt"
-            type="text"
-            name=""
-            placeholder="Search Product"
-            onChange={handleChange}
-            value={searchInput} />
-        <a class="search-btn" href="#">
-            <CgSearch onClick={e => updateData(e, searchInput)}></CgSearch>
+          class='search-txt'
+          type='text'
+          name=''
+          placeholder='Search Product'
+          onChange={handleChange} />
+        <a class='search-btn' href='#'>
+          <CgSearch onClick={e => handleChange(e)}></CgSearch>
         </a>
-    </div>
+      </div>
 }

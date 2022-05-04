@@ -4,7 +4,6 @@ import './App.css'
 import { DynamicHeader } from './components/DynamicHeader'
 import { useEffect, useState } from 'react'
 import './components/SearchBar/style/searchBar.css'
-import axios from 'axios'
 import { Box, Tab, Tabs } from '@mui/material'
 import { TabPanel } from './components/TabPanel'
 import { AllergyInfo } from './screens/AllergyInfo'
@@ -13,18 +12,6 @@ import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 
 function App () {
-  // const [data, setData] = useState({Data:[]});
-  // useEffect(() =>{
-  //   let x ;
-  //       axios.get('http://localhost:8000/admin/')
-  //       .then(res => {
-  //           x = res.x;
-  //           setData({
-  //               Data : x
-  //           });
-  //       })
-  //       .catch(err => {})
-  // })
   const [value, setValue] = useState(0)
   const handleChange = (event, newValue) => {
     setValue(newValue)

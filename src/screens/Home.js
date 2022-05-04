@@ -12,6 +12,21 @@ export const Home = () => {
   const allergies = [...new Set(Data.map(Val => Val.allergens))]
   const countries = [...new Set(Data.map(Val => Val.region))]
   const [filters, setFilters] = useState([])
+  const [searchInput, setSearchInput] = useState('')
+
+
+    // const [data, setData] = useState({Data:[]});
+  // useEffect(() =>{
+  //   let x ;
+  //       axios.get('http://localhost:8000/admin/')
+  //       .then(res => {
+  //           x = res.x;
+  //           setData({
+  //               Data : x
+  //           });
+  //       })
+  //       .catch(err => {})
+  // })
 
   useEffect(() => {
     if (filters.length > 0) {
@@ -60,8 +75,11 @@ export const Home = () => {
 
   return (
     <div>
-      <div style={{ padding: '50px' }}>
-        <SearchBar setData={setData} data={data}></SearchBar>
+      <h3> Search For A Food Product </h3>
+      <div style={{ padding: '25px' }}>
+        <SearchBar 
+          setSearchInput={setSearchInput}
+        ></SearchBar>
       </div>
       <AllergiesContainer
         allergies={allergies}
@@ -69,7 +87,7 @@ export const Home = () => {
         setFilterType={setFilterType}
         setFilters={setFilters}
       />
-      <Table data={data} />
+      <Table data={data} input={searchInput}/>
     </div>
   )
 }
