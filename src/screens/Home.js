@@ -59,32 +59,16 @@ export const Home = () => {
   }, [filters])
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '20px'
-      }}
-    >
-      <div style={{ padding: '50px' }} >
+    <div>
+      <div style={{ padding: '50px' }}>
         <SearchBar setData={setData} data={data}></SearchBar>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          width: '100%',
-          gap: '10px',
-          justifyContent: 'space-evenly'
-        }}
-      >
-        <AllergiesContainer
-          allergies={allergies}
-          filters={filters}
-          setFilterType={setFilterType}
-          setFilters={setFilters}
-        />
-      </div>
+      <AllergiesContainer
+        allergies={allergies}
+        filters={filters}
+        setFilterType={setFilterType}
+        setFilters={setFilters}
+      />
       <Table data={data} />
     </div>
   )
