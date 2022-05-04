@@ -34,7 +34,8 @@ function App() {
     <ViewPortProvider>
     <DynamicHeader 
       title={'Food Products Sold In the US, MX and UK'}
-      backgroundColor='lightblue'
+      backgroundColor='#16A085'
+      color='white'
       position='center'/>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
