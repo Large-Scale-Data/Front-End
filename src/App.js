@@ -1,47 +1,65 @@
-import { Main, TableComponent } from './components/Table/Main';
+import { Home } from './screens/Home';
 import { ViewPortProvider } from './app/context'
 import './App.css';
 import { DynamicHeader } from './components/DynamicHeader';
-import { useState } from 'react';
-import { SearchBar } from './components/SearchBar/Main';
-import { AllergiesContainer } from './components/AllergiesContainer/Main';
-import { FilterCountries } from './components/FilterCountries/Main';
+import { useEffect, useState } from 'react';
 import './components/SearchBar/style/searchBar.css';
 import axios from "axios";
-import { Data } from './Data';
+import { Box, Tab, Tabs } from '@mui/material';
+import { TabPanel } from './components/TabPanel';
+import { AllergyInfo } from './screens/AllergyInfo';
+import { AboutUs } from './screens/AboutUs';
+
 
 function App() {
-  const [data, setData] = useState(Data);
-  const allergies = [...new Set(Data.map((Val) => Val.allergy))];
-  const countries = [...new Set(Data.map((Val) => Val.region))];
   
-  // refreshList = () => {
-  //   axios
-  //     .get("/api/todos/")
-  //     .then((res) => this.setState({ todoList: res.data }))
-  //     .catch((err) => console.log(err));
-  // };
-  
+  // const [data, setData] = useState({Data:[]});
+  // useEffect(() =>{
+  //   let x ;
+  //       axios.get('http://localhost:8000/admin/')
+  //       .then(res => {
+  //           x = res.x;
+  //           setData({
+  //               Data : x    
+  //           });
+  //       })
+  //       .catch(err => {})
+  // })
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <ViewPortProvider>
     <DynamicHeader 
-      title={'Food Products Sold In the US, UK and MX'}
-      backgroundColor='lightblue'
-      position='center'
-      items={[<div>Allergy Information</div>,  <div>About Us</div>]}/>
-    <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
-      <div style={{padding: '50px'}}><SearchBar></SearchBar></div>
-      <div style={{display:'flex', width:'100%', gap:'10px', justifyContent:'space-evenly'}}>
-        <AllergiesContainer 
-          allergies={allergies}
-          setData={setData} />
-        <FilterCountries 
-          countries={countries}
-          setData={setData} />
-      </div>
-      <TableComponent data={data} />
-    </div>
+      title={'Food Products Sold In the US, MX and UK'}
+      backgroundColor='#16A085'
+      color='white'
+      position='center'/>
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs 
+          value={value} 
+          onChange={handleChange}
+          textColor='secondary'
+          indicatorColor='secondary'
+          centered>
+          <Tab label="Home" />
+          <Tab label="Allergy Information"  />
+          <Tab label="About Us" />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+        <Home/>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <AllergyInfo/>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <AboutUs/>
+      </TabPanel>
+    </Box>
     </ViewPortProvider>
   )
 }

@@ -28,7 +28,7 @@ export const StyledTitleBox = styled.div`
 export const ItemsContainer = styled.div`
     // border: 2px solid green;
     display: flex;
-    overflow-x:scroll;
+    // overflow-x:scroll;
     align-items: center;
     gap: .5rem;
 `

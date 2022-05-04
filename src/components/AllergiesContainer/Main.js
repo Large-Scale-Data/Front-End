@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Data } from "../../Data";
 
-  export const AllergiesContainer = ({allergies, setData}) => {
-    const filterCountry = (curcat) => {
-      const newItem = Data.filter((newVal) => {
-        return newVal.allergy === curcat;
-      });
-      setData(newItem);
-    };
-
-    return <div style={{display:'flex', padding:'10px', flexDirection:'column'}}>
-      <b> Select Allergy To Avoid </b>
-      <div>
-      { allergies.map(allergy => //TODO: this is where custom toggle component will go
-          <label style={{ display: 'flex'}}>
-            <div>{allergy}</div>
-            <input type="checkbox" onClick={()=> filterCountry(allergy)}></input>
-          </label>
-        )
+export const AllergiesContainer = ({allergies, filters, setFilterType, setFilters}) => {
+  const filterAllergy = (curcat, checked) => {
+    if (checked) {
+      setFilterType('allergy')
+      const filtersCopy = [...filters]
+      var index = filtersCopy.indexOf(curcat)
+      if (index == -1) {
+        filtersCopy.push(curcat)
+        setFilters(filtersCopy)
       }
-      </div>
-    </div>
+    } else {
+      //if filter is in filters, remove it else do nothing
+      const filtersCopy = [...filters]
+      var index = filtersCopy.indexOf(curcat)
+      if (index !== -1) {
+        console.log(index)
+
+        filtersCopy.splice(index, 1)
+        setFilters(filtersCopy)
+      }
+    }
   }
+
+  return <div style={{display:'flex', padding:'10px', flexDirection:'column'}}>
+    <b> Select Allergy To Avoid </b>
+    { allergies.map((allergy, index) => {//TODO: this is where custom toggle component will go
+        return <div key={index}>
+          <input
+            type="checkbox"
+            onClick={e => filterAllergy(allergy, e.target.checked)}
+          />
+          <label>{allergy}</label>
+        </div>
+      }
+    )}
+  </div>
+}
   
   
