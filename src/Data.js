@@ -1,10 +1,10 @@
 export const Data = [
-    { brand:'Kelogs', region: "US", product: "peanut butter", allergy: "nut, dairy" },
-    { brand:'Other', region: "US", product: "milk", allergy: "dairy" },
-    { brand:'Kelogs', region: "US", product: "peanut butter", allergy: "nut"},
-    { brand:'Hersheys', region: "UK", product: "milk", allergy: "dairy" },
-    { brand:'Del Taco', region: "UK", product: "peanut butter", allergy: "nut"},
-    { brand:'Other', region: "UK", product: "peanut butter", allergy: "nut"},
-    { brand:'Other', region: "MX", product: "peanut butter", allergy: "nut" },
-    { brand:'Other', region: "MX", product: "peanut butter", allergy: "nut"},
+    { brand_owner:'Kelogs', ingredients: "tomato, turkey, ham", product_name: "sandwhich", allergens: "nut, dairy" },
+    { brand_owner:'Other', ingredients: "other", product_name: "milk", allergens: "dairy" },
+    { brand_owner:'Kelogs', ingredients: "peanuts, oil", product_name: "peanut butter", allergens: "nut"},
+    { brand_owner:'Hersheys', ingredients: "tomato, egg, ham, cheese", product_name: "sandwhich", allergens: "dairy" },
+    { brand_owner:'Del Taco', ingredients: "tomato, turkey, ham", product_name: "sandwhich", allergens: "nut"},
+    { brand_owner:'Other', ingredients: "cheese, egg", product_name: "sandwhich", allergens: "nut"},
+    { brand_owner:'Other', ingredients: "tomato, turkey", product_name: "sandwhich", allergens: "nut" },
+    { brand_owner:'Other', ingredients: "sausage", product_name: "peanut butter", allergens: "nut"},
 ]
