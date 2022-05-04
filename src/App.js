@@ -5,12 +5,11 @@ import { DynamicHeader } from './components/DynamicHeader';
 import { useEffect, useState } from 'react';
 import './components/SearchBar/style/searchBar.css';
 import axios from "axios";
-import { Box, Tab, Tabs, Typography } from '@mui/material';
-import PropTypes from 'prop-types';
+import { Box, Tab, Tabs } from '@mui/material';
+import { TabPanel } from './components/TabPanel';
 
 
 function App() {
-  
   
   // const [data, setData] = useState({Data:[]});
   // useEffect(() =>{
@@ -24,37 +23,11 @@ function App() {
   //       })
   //       .catch(err => {})
   // })
-
-  function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-    return (
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`simple-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
-  }
-  
-  TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-  };
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  
   return (
     <ViewPortProvider>
     <DynamicHeader 
@@ -84,7 +57,6 @@ function App() {
         Item Three
       </TabPanel>
     </Box>
-    
     </ViewPortProvider>
   )
 }
