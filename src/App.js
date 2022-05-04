@@ -96,12 +96,12 @@ function App() {
           filters={filters}
           setFilterType={setFilterType}
           setFilters={setFilters}/>
-        <FilterCountries 
+        {/* <FilterCountries 
           countries={countries}
           // data={data}
           setFilterType={setFilterType}
           filters={filters}
-          setFilters={setFilters}/>
+          setFilters={setFilters}/> */}
       </div>
       <TableComponent data={data} />
     </div>

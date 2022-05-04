@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { CgSearch } from 'react-icons/cg';
 import { Data } from '../../Data';
 
-export const SearchBar = (setData, data) => {
+export const SearchBar = ({setData, data, filters, setFilterType, setFilters}) => {
     const [searchInput, setSearchInput] = useState("");
     const handleChange = (e) => {
         e.preventDefault();
@@ -23,7 +23,13 @@ export const SearchBar = (setData, data) => {
 
     const updateData = (e, searchInput) => {
         console.log(e)
-
+        setFilterType('country')
+        const filtersCopy = [...filters]
+        var index = filtersCopy.indexOf(searchInput)
+        if (index == -1) {
+            filtersCopy.push(searchInput)
+            setFilters(filtersCopy)
+        }
         alert('clicked ' + searchInput)
     }
 
