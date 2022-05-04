@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Data } from "../../Data";
 
-export const AllergiesContainer = ({allergies, setData, filters, setFilterType, setFilters}) => {
+export const AllergiesContainer = ({allergies, filters, setFilterType, setFilters}) => {
   const filterAllergy = (curcat, checked) => {
     if (checked) {
       setFilterType('allergy')
@@ -23,35 +23,6 @@ export const AllergiesContainer = ({allergies, setData, filters, setFilterType, 
       }
     }
   }
-
-  // useEffect(() => {
-  //   if (filters.length > 0) {
-  //     // const newItem = Data.filter(newVal => {
-  //     //   return newVal.region === filters[0]
-  //     // })
-  //     const newData = Data.filter(item =>{
-  //       var orStatement = "item.allergy !== " ;
-  //       filters.forEach(filter => {
-  //         orStatement += "'"+ filter +"'"
-  //         if(filters.indexOf(filter)!==filters.length-1){
-  //           orStatement+="&& item.allergy !== "
-  //         }
-  //         // const filterFunc = function (item, region) {
-  //         //   return item.region === region
-  //         // }
-  //       })
-  //       console.log(orStatement)
-
-  //       return eval(orStatement)
-  //     } )
-  //     console.log(newData)
-
-  //     setData(newData)
-  //   } 
-  //   else {
-  //     setData(Data)
-  //   }
-  // }, [filters])
 
   return <div style={{display:'flex', padding:'10px', flexDirection:'column'}}>
     <b> Select Allergy To Avoid </b>

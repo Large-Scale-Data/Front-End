@@ -12,17 +12,24 @@ import { Data } from './Data';
 
 function App() {
   const [data, setData] = useState(Data);
-  const [filterType,setFilterType] = useState()
+  const [filterType, setFilterType] = useState()
   const allergies = [...new Set(Data.map((Val) => Val.allergy))];
   const countries = [...new Set(Data.map((Val) => Val.region))];
   const [filters, setFilters] = useState([])
 
-  // refreshList = () => {
-  //   axios
-  //     .get("/api/todos/")
-  //     .then((res) => setState({ todoList: res.data }))
-  //     .catch((err) => console.log(err));
-  // };
+  // const [data, setData] = useState({Data:[]});
+  // useEffect(() =>{
+  //   let x ;
+  //       axios.get('http://localhost:8000/admin/')
+  //       .then(res => {
+  //           x = res.x;
+  //           setData({
+  //               Data : x    
+  //           });
+  //       })
+  //       .catch(err => {})
+  // })
+
   useEffect(() => {
     if (filters.length > 0) {
       // const newItem = Data.filter(newVal => {
@@ -30,7 +37,6 @@ function App() {
       // })
 
       var newData;
-
       if(filterType==='allergy'){
        newData = Data.filter(item =>{
           var orStatement = "item.allergy !== " ;
@@ -44,7 +50,6 @@ function App() {
             // }
           })
           console.log(orStatement)
-  
           return eval(orStatement)
         } )
       }
@@ -63,8 +68,6 @@ function App() {
           return eval(orStatement)
         } )
       }
-      
-      
       // bad
       setData(newData)
     } 
@@ -81,21 +84,24 @@ function App() {
       position='center'
       items={[<div>Allergy Information</div>,  <div>About Us</div>]}/>
     <div style={{display:'flex', flexDirection:'column', alignItems:'center', padding:'20px', }}>
-      <div style={{padding: '50px'}}><SearchBar></SearchBar></div>
+      <div style={{padding: '50px'}}>
+        <SearchBar 
+          setData={setData}
+          data={data}>
+        </SearchBar>
+      </div>
       <div style={{display:'flex', width:'100%', gap:'10px', justifyContent:'space-evenly'}}>
         <AllergiesContainer 
           allergies={allergies}
           filters={filters}
           setFilterType={setFilterType}
-          setFilters={setFilters}
-          setData={setData} />
+          setFilters={setFilters}/>
         <FilterCountries 
           countries={countries}
           // data={data}
           setFilterType={setFilterType}
           filters={filters}
-          setFilters={setFilters}
-          setData={setData} />
+          setFilters={setFilters}/>
       </div>
       <TableComponent data={data} />
     </div>

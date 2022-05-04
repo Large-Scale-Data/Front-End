@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Data } from '../../Data'
 
-export const FilterCountries = ({ countries, setData, filters,setFilters,setFilterType}) => {
+export const FilterCountries = ({ countries, filters,setFilters,setFilterType}) => {
   const filterCountry = (curcat, checked) => {
     if (checked) {
       setFilterType('country')
@@ -24,42 +24,9 @@ export const FilterCountries = ({ countries, setData, filters,setFilters,setFilt
     }
   }
 
-  // const newItem = Data.filter(newVal => {
-  //   //filters.map((filter)=>{})
-  //   return newVal.region === filters[0] && newVal.region === filters[1]
-  // })
-  // useEffect(() => {
-  //   if (filters.length > 0) {
-  //     // const newItem = Data.filter(newVal => {
-  //     //   return newVal.region === filters[0]
-  //     // })
-  //     const newData = Data.filter(item =>{
-  //       var orStatement = "item.region === " ;
-  //       filters.forEach(filter => {
-  //         orStatement += "'"+ filter +"'"
-  //         if(filters.indexOf(filter)!==filters.length-1){
-  //           orStatement+="|| item.region === "
-  //         }
-  //         // const filterFunc = function (item, region) {
-  //         //   return item.region === region
-  //         // }
-  //       })
-  //       return eval(orStatement)
-  //     } )
-  //     // bad
-  //     setData(newData)
-  //   } 
-  //   else {
-  //     setData(Data)
-  //   }
-  // }, [filters])
 
-  // useEffect(() => {}, [data])
   return (
-    <div
-      div
-      style={{ display: 'flex', padding: '10px', flexDirection: 'column' }}
-    >
+    <div style={{ display: 'flex', padding: '10px', flexDirection: 'column' }} >
       <b> Filter by countries </b>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         {countries.map(country => (
