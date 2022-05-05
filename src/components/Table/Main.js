@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react'
 
 export const Table = ({ data, input, setFilteredData }) => {
+  // const preferenceRank = {}
+  // for (const [key, { rank }] of Object.entries(data)) {
+  //   preferenceRank[rank] = key
+  // }
 
   const newData = data.filter(el => {
     //if no input then return the original
@@ -15,7 +19,7 @@ export const Table = ({ data, input, setFilteredData }) => {
 
   useEffect(() => {
     setFilteredData(newData)
-  },[input])
+  }, [input])
 
   return (
     <table
@@ -34,7 +38,7 @@ export const Table = ({ data, input, setFilteredData }) => {
         </tr>
       </thead>
       <tbody>
-        { newData.map((val, key) => {
+        {newData.map((val, key) => {
           return (
             <tr key={key} style={{ color: 'black' }}>
               <td style={{ color: 'black' }}>{val.brand_owner}</td>

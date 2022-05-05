@@ -23,7 +23,7 @@ function App () {
   return (
     <ViewPortProvider>
       <DynamicHeader
-        title={'Food Products Sold In the US, MX and UK'}
+        title={'Food Products Sold In the United States'}
         backgroundColor='#16A085'
         color='white'
         position='center'
