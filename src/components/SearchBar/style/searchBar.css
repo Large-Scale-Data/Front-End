@@ -10,15 +10,6 @@
 	/* width: 240px; */
 }
 
-.search-box:hover > .search-txt{
-	width: 240px;
-	padding: 0 6px;
-}
-
-.search-box:hover > .search-btn{
-	background: white;
-}
-
  .search-btn{
 	 color: #16A085;
 	 float: right;
