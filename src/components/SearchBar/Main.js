@@ -16,9 +16,11 @@ export const SearchBar = props => {
           type='text'
           name=''
           placeholder='Search Product'
-          onChange={handleChange} />
+          onChange={handleChange} 
+          // value={}
+          />
         <a class='search-btn' href='#'>
-          <CgSearch onClick={e => handleChange(e)}></CgSearch>
+          <CgSearch></CgSearch>
         </a>
       </div>
 }

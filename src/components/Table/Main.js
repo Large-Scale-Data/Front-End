@@ -1,16 +1,21 @@
-import React from 'react'
-export const Table = ({ data, input }) => {
+import React, { useEffect } from 'react'
 
-  const filteredData = data.filter(el => {
-    //if no input the return the original
+export const Table = ({ data, input, setFilteredData }) => {
+
+  const newData = data.filter(el => {
+    //if no input then return the original
     if (input === '') {
       return el
     }
     //return the item which contains the user input
     else {
-      return el.product_name.toLowerCase().includes(input)
+      return el.product_name.toLowerCase().includes(input) // returns true false
     }
   })
+
+  useEffect(() => {
+    setFilteredData(newData)
+  },[input])
 
   return (
     <table
@@ -29,8 +34,7 @@ export const Table = ({ data, input }) => {
         </tr>
       </thead>
       <tbody>
-        {/* { console.log(data) } */}
-        {filteredData.map((val, key) => {
+        { newData.map((val, key) => {
           return (
             <tr key={key} style={{ color: 'black' }}>
               <td style={{ color: 'black' }}>{val.brand_owner}</td>
