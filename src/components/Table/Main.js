@@ -5,7 +5,7 @@ export const Table = ({ data, input, setFilteredData }) => {
   const newData = data.filter(el => {
     //if no input then return the original
     if (input === '') {
-      return el
+      return null
     }
     //return the item which contains the user input
     else {

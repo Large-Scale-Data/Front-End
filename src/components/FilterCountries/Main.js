@@ -42,3 +42,16 @@ export const FilterCountries = ({ countries, filters,setFilters,setFilterType}) 
     </div>
   )
 }
+
+// if (filterType === 'country') {
+//   newData = filteredData.filter(item => {
+//     var orStatement = 'item.region === '
+//     filters.forEach(filter => {
+//       orStatement += "'" + filter + "'"
+//       if (filters.indexOf(filter) !== filters.length - 1) {
+//         orStatement += '|| item.region === '
+//       }
+//     })
+//     return eval(orStatement)
+//   })
+// }
