@@ -10,16 +10,12 @@ export const SearchBar = props => {
     setSearchInput(e.target.value.toLowerCase())
   }
 
-  return  <div class='search-box'>
-        <input
-          class='search-txt'
-          type='text'
-          name=''
-          placeholder='Search Product'
+  return  <div class="search-box">
+        <input type="text" name="" placeholder="Search Product"
           onChange={handleChange} 
           // value={}
           />
-        <a class='search-btn' href='#'>
+        <a class="search-btn" href="#">
           <CgSearch></CgSearch>
         </a>
       </div>
