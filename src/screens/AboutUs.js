@@ -5,5 +5,7 @@ export const AboutUs = () => {
       Currently, there are not many applications that can show available food products in several different countries.
       Our application is made to show food products that are sold in the United States, Mexico, and the United Kingdom. 
       By using our application, you can easily find food products that either do or do not contain the specified allergens.
+      <h2>How?</h2>
+      Our team collected data from USDA. 
       </div>
   }
