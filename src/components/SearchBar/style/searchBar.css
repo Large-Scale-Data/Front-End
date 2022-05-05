@@ -10,12 +10,12 @@
 	/* width: 240px; */
 }
 
-.search-box:focus > .search-txt{
+.search-box:hover > .search-txt > .search-txt:focus{
 	width: 240px;
 	padding: 0 6px;
 }
 
-.search-box:focus > .search-btn{
+.search-box:hover > .search-btn{
 	background: white;
 }
 
