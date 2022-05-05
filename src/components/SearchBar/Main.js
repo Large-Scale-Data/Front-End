@@ -11,7 +11,7 @@ export const SearchBar = props => {
   }
 
   return  <div class="search-box">
-        <input type="text" name="" placeholder="Search Product"
+        <input class="search-txt" type="text" name="" placeholder="Search Product"
           onChange={handleChange} 
           // value={}
           />
