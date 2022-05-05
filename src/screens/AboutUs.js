@@ -1,4 +1,9 @@
 export const AboutUs = () => {
 
-    return <div>Add About Us Info</div>
+    return <div>
+      <h2>Why?</h2>
+      Currently, there are not many applications that can show available food products in several different countries.
+      Our application is made to show food products that are sold in the United States, Mexico, and the United Kingdom. 
+      By using our application, you can easily find food products that either do or do not contain the specified allergens.
+      </div>
   }
