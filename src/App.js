@@ -23,7 +23,7 @@ function App () {
   return (
     <ViewPortProvider>
       <DynamicHeader
-        title={'Food Products Sold In the United States'}
+        title={'Miriams PartyLand'}
         backgroundColor='#16A085'
         color='white'
         position='center'
@@ -38,7 +38,7 @@ function App () {
             centered
           >
             <Tab label='Home' />
-            <Tab label='Allergy Information' />
+            {/* <Tab label='Allergy Information' /> */}
             <Tab label='About Us' />
           </Tabs>
         </Box>
@@ -49,9 +49,9 @@ function App () {
           <TabPanel value={value} index={0} dir={theme.direction}>
             <Home />
           </TabPanel>
-          <TabPanel value={value} index={1} dir={theme.direction}>
+          {/* <TabPanel value={value} index={1} dir={theme.direction}>
             <AllergyInfo />
-          </TabPanel>
+          </TabPanel> */}
           <TabPanel value={value} index={2} dir={theme.direction}>
             <AboutUs />
           </TabPanel>
